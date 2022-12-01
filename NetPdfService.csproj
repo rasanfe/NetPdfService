@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="TestNetPdfService\**" />
+    <EmbeddedResource Remove="TestNetPdfService\**" />
+    <None Remove="TestNetPdfService\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="itext7" Version="7.2.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TestNetPdfService\obj\" />
+  </ItemGroup>
+</Project>
