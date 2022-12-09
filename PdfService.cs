@@ -1,4 +1,4 @@
-﻿using System.IO;
+﻿using System;
 using System.Text;
 using iText.Kernel.Pdf;
 using iText.Signatures;
@@ -9,6 +9,8 @@ using Org.BouncyCastle.Pkcs;
 using System.Globalization;
 using iText.Kernel.Font;
 using iText.IO.Image;
+
+
 
 
 namespace NetPdfService
@@ -104,7 +106,7 @@ namespace NetPdfService
 
 
         internal void Sign(string inFile, string outFile, string certFile, string password, string reason, string location, string contact, string imgeFile, int x1, int y1, int x2, int y2, string nombre, string dni, bool isVisible,
-            ICollection<ICrlClient> crlList, IOcspClient ocspClient, ITSAClient tsaClient, int estimatedSize)
+            ICollection<ICrlClient>? crlList, IOcspClient? ocspClient, ITSAClient? tsaClient, int estimatedSize)
         {
 
             PdfSigner signer = new PdfSigner(new PdfReader(inFile), new FileStream(outFile, FileMode.Create), new StampingProperties());
@@ -147,8 +149,8 @@ namespace NetPdfService
             }
 
 
-            X509Certificate[] chain = null;
-            IExternalSignature pks = null;
+            X509Certificate[]? chain = null;
+            IExternalSignature? pks = null;
 
             CreateChainFromFile(certFile, password, DigestAlgorithms.SHA256, ref chain, ref pks);
 
@@ -156,7 +158,7 @@ namespace NetPdfService
             signer.SignDetached(pks, chain, crlList, ocspClient, tsaClient, estimatedSize, PdfSigner.CryptoStandard.CMS);
         }
 
-        internal void CreateChainFromFile(String certFile, String password, String digestAlgorithm, ref X509Certificate[] chain, ref IExternalSignature pks)
+        internal void CreateChainFromFile(String certFile, String password, String digestAlgorithm, ref X509Certificate[]? chain, ref IExternalSignature? pks)
         {
 
             FileStream certStream = new FileStream(certFile, FileMode.Open, FileAccess.Read);

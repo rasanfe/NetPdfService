@@ -10,9 +10,9 @@
     <None Remove="TestNetPdfService\**" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="itext7" Version="7.2.4" />
+    <Folder Include="TestNetPdfService\obj\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="TestNetPdfService\obj\" />
+    <PackageReference Include="itext7" Version="7.2.4" />
   </ItemGroup>
 </Project>
