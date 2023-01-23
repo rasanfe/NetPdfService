@@ -13,6 +13,6 @@
     <Folder Include="TestNetPdfService\obj\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="itext7" Version="7.2.4" />
+    <PackageReference Include="itext7" Version="7.2.5" />
   </ItemGroup>
 </Project>
