@@ -41,7 +41,7 @@ namespace AppPdfService
                 PdfService lnpdf = new PdfService();
 
                 string? path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-                string lastPath = path.Split(Path.DirectorySeparatorChar).Last();
+                string? lastPath = path.Split(Path.DirectorySeparatorChar).Last();
                 if (lastPath == "publish")
                 {
                     path = "..\\..\\..\\..";

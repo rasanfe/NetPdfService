@@ -13,6 +13,8 @@
     <Folder Include="TestNetPdfService\obj\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="itext7" Version="7.2.5" />
+    <PackageReference Include="itext7" Version="8.0.3" />
+    <PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.3" />
+    <PackageReference Include="itext7.commons" Version="8.0.3" />
   </ItemGroup>
 </Project>

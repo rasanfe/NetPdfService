@@ -9,6 +9,10 @@ using Org.BouncyCastle.Pkcs;
 using System.Globalization;
 using iText.Kernel.Font;
 using iText.IO.Image;
+using System.IO;
+using iText.Bouncycastle.X509;
+using iText.Commons.Bouncycastle.Cert;
+using iText.Bouncycastle.Crypto;
 
 
 
@@ -71,7 +75,7 @@ namespace NetPdfService
             if (System.IO.Path.GetExtension(outFile) != ".pdf")
             {
                 errorText = "Output File Extension is not PDF";
-                throw new ArgumentException(paramName: nameof(inFile), message: errorText);
+                throw new ArgumentException(paramName: nameof(outFile), message: errorText);
             }
             if (String.IsNullOrEmpty(certFile))
             {
@@ -81,7 +85,7 @@ namespace NetPdfService
             if (System.IO.Path.GetExtension(certFile) != ".pfx")
             {
                 errorText = "Certificate File Extension is not PFX";
-                throw new ArgumentException(paramName: nameof(inFile), message: errorText);
+                throw new ArgumentException(paramName: nameof(certFile), message: errorText);
             }
             if (String.IsNullOrEmpty(password))
             {
@@ -108,22 +112,20 @@ namespace NetPdfService
         internal void Sign(string inFile, string outFile, string certFile, string password, string reason, string location, string contact, string imgeFile, int x1, int y1, int x2, int y2, string nombre, string dni, bool isVisible,
             ICollection<ICrlClient>? crlList, IOcspClient? ocspClient, ITSAClient? tsaClient, int estimatedSize)
         {
-
             PdfSigner signer = new PdfSigner(new PdfReader(inFile), new FileStream(outFile, FileMode.Create), new StampingProperties());
             signer.SetCertificationLevel(PdfSigner.NOT_CERTIFIED);
 
             //Determinamos la Fecha de la certFile
             DateTime fechaFirma = DateTime.Now;
             signer.SetSignDate(fechaFirma);
-            signer.SetFieldName("sig_" + dni + "_" + fechaFirma.ToString("U", DateTimeFormatInfo.InvariantInfo).Replace(" ", "_").Replace(",", "").Replace(":", ""));
+            signer.SetFieldName("sig_" + dni + "_" + fechaFirma.ToString("U", DateTimeFormatInfo.InvariantInfo).Replace(" ", "_").Replace(",", "").Replace(":", "")); 
+            signer.SetCertificationLevel(PdfSigner.CERTIFIED_FORM_FILLING);
+            signer.SetLocation(@location);
+            signer.SetReason(@reason);
+            signer.SetContact(@contact);
 
             // Create the signature appearance
             PdfSignatureAppearance appearance = signer.GetSignatureAppearance();
-
-            appearance
-               .SetLocation(@location)
-               .SetReason(@reason)
-               .SetContact(@contact);
 
 
             if (isVisible)
@@ -148,34 +150,54 @@ namespace NetPdfService
                 appearance.SetLayer2Text(text);
             }
 
-
-            X509Certificate[]? chain = null;
+            IX509Certificate[]? chain = null;
             IExternalSignature? pks = null;
 
             CreateChainFromFile(certFile, password, DigestAlgorithms.SHA256, ref chain, ref pks);
 
+            // Aquí es donde necesitas convertir el arreglo de certificados al tipo esperado por iText
+            var convertedChain = chain.Select(x => (iText.Commons.Bouncycastle.Cert.IX509Certificate)x).ToArray();
 
-            signer.SignDetached(pks, chain, crlList, ocspClient, tsaClient, estimatedSize, PdfSigner.CryptoStandard.CMS);
+            signer.SignDetached(pks, convertedChain, crlList, ocspClient, tsaClient, estimatedSize, PdfSigner.CryptoStandard.CMS);
         }
 
-        internal void CreateChainFromFile(String certFile, String password, String digestAlgorithm, ref X509Certificate[]? chain, ref IExternalSignature? pks)
+
+        internal void CreateChainFromFile(String certFile, String password, String digestAlgorithm, ref IX509Certificate[]? chain, ref IExternalSignature? pks)
         {
 
             FileStream certStream = new FileStream(certFile, FileMode.Open, FileAccess.Read);
-            Pkcs12Store pk12 = new Pkcs12Store(certStream, password.ToCharArray());
-            String alias = "";
-            foreach (String tAlias in pk12.Aliases)
+            try
             {
-                if (pk12.IsKeyEntry(tAlias))
+                Pkcs12Store pk12 = new Pkcs12StoreBuilder().Build();
+                pk12.Load(certStream, password.ToCharArray());
+
+                String alias = "";
+                foreach (String tAlias in pk12.Aliases)
                 {
-                    alias = tAlias;
-                    break;
+                    if (pk12.IsKeyEntry(tAlias))
+                    {
+                        alias = tAlias;
+                        break;
+                    }
                 }
+
+                ICipherParameters pk = pk12.GetKey(alias).Key;
+                X509CertificateEntry[] ce = pk12.GetCertificateChain(alias);
+                chain = new IX509Certificate[ce.Length];
+                for (int k = 0; k < ce.Length; ++k)
+                {
+                    chain[k] = new X509CertificateBC(ce[k].Certificate);
+                }
+
+
+                pks = new PrivateKeySignature(new PrivateKeyBC(pk), digestAlgorithm);
+
+                        
             }
-            certStream.Close();
-            ICipherParameters pk = pk12.GetKey(alias).Key;
-            pks = new PrivateKeySignature(pk, digestAlgorithm);
-            chain = new X509Certificate[] { pk12.GetCertificate(alias).Certificate };
+            finally
+            {
+                certStream.Close();
+            }
 
         }
 
