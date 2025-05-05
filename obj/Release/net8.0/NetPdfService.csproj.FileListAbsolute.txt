@@ -1,0 +1,12 @@
+C:\proyecto pw2022\Blog\Net8\NetPdfService\obj\Release\net8.0\NetPdfService.csproj.AssemblyReference.cache
+C:\proyecto pw2022\Blog\Net8\NetPdfService\obj\Release\net8.0\NetPdfService.GeneratedMSBuildEditorConfig.editorconfig
+C:\proyecto pw2022\Blog\Net8\NetPdfService\obj\Release\net8.0\NetPdfService.AssemblyInfoInputs.cache
+C:\proyecto pw2022\Blog\Net8\NetPdfService\obj\Release\net8.0\NetPdfService.AssemblyInfo.cs
+C:\proyecto pw2022\Blog\Net8\NetPdfService\obj\Release\net8.0\NetPdfService.csproj.CoreCompileInputs.cache
+C:\proyecto pw2022\Blog\Net8\NetPdfService\bin\Release\net8.0\NetPdfService.deps.json
+C:\proyecto pw2022\Blog\Net8\NetPdfService\bin\Release\net8.0\NetPdfService.dll
+C:\proyecto pw2022\Blog\Net8\NetPdfService\bin\Release\net8.0\NetPdfService.pdb
+C:\proyecto pw2022\Blog\Net8\NetPdfService\obj\Release\net8.0\NetPdfService.dll
+C:\proyecto pw2022\Blog\Net8\NetPdfService\obj\Release\net8.0\refint\NetPdfService.dll
+C:\proyecto pw2022\Blog\Net8\NetPdfService\obj\Release\net8.0\NetPdfService.pdb
+C:\proyecto pw2022\Blog\Net8\NetPdfService\obj\Release\net8.0\ref\NetPdfService.dll

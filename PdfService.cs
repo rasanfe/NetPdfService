@@ -13,9 +13,7 @@ using System.IO;
 using iText.Bouncycastle.X509;
 using iText.Commons.Bouncycastle.Cert;
 using iText.Bouncycastle.Crypto;
-
-
-
+using iText.Commons.Bouncycastle.Cert;
 
 namespace NetPdfService
 {
@@ -25,7 +23,7 @@ namespace NetPdfService
         private string errorText = "";
         public void Firmar(string inFile, string outFile, string certFile, string password, string reason, string location, string contact, string imgeFile, int x1, int y1, int x2, int y2, string nombre, string dni)
         {
-            
+
             const bool isVisible = true;
 
             if (String.IsNullOrEmpty(imgeFile))
@@ -94,7 +92,7 @@ namespace NetPdfService
             }
 
             if (String.IsNullOrWhiteSpace(reason)) { reason = "proof of authenticity"; }
-            
+
             ResetError();
 
             try
@@ -118,7 +116,7 @@ namespace NetPdfService
             //Determinamos la Fecha de la certFile
             DateTime fechaFirma = DateTime.Now;
             signer.SetSignDate(fechaFirma);
-            signer.SetFieldName("sig_" + dni + "_" + fechaFirma.ToString("U", DateTimeFormatInfo.InvariantInfo).Replace(" ", "_").Replace(",", "").Replace(":", "")); 
+            signer.SetFieldName("sig_" + dni + "_" + fechaFirma.ToString("U", DateTimeFormatInfo.InvariantInfo).Replace(" ", "_").Replace(",", "").Replace(":", ""));
             signer.SetCertificationLevel(PdfSigner.CERTIFIED_FORM_FILLING);
             signer.SetLocation(@location);
             signer.SetReason(@reason);
@@ -192,7 +190,7 @@ namespace NetPdfService
 
                 pks = new PrivateKeySignature(new PrivateKeyBC(pk), digestAlgorithm);
 
-                        
+
             }
             finally
             {

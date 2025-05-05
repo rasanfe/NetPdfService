@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\proyecto pw2022\\Blog\\Net8\\NetPdfService\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{25CC997D-3F7F-4D04-BA96-8F32D2B989E7}|TestNetPdfService\\TestNetPdfService.csproj|c:\\proyecto pw2022\\blog\\net8\\netpdfservice\\testnetpdfservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25CC997D-3F7F-4D04-BA96-8F32D2B989E7}|TestNetPdfService\\TestNetPdfService.csproj|solutionrelative:testnetpdfservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25CC997D-3F7F-4D04-BA96-8F32D2B989E7}|TestNetPdfService\\TestNetPdfService.csproj|c:\\proyecto pw2022\\blog\\net8\\netpdfservice\\testnetpdfservice\\testnetpdfservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{25CC997D-3F7F-4D04-BA96-8F32D2B989E7}|TestNetPdfService\\TestNetPdfService.csproj|solutionrelative:testnetpdfservice\\testnetpdfservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE4C9EA-8066-4EF9-9827-1A8C53067623}|NetPdfService.csproj|C:\\proyecto pw2022\\Blog\\Net8\\NetPdfService\\netpdfservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{EFE4C9EA-8066-4EF9-9827-1A8C53067623}|NetPdfService.csproj|solutionrelative:netpdfservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE4C9EA-8066-4EF9-9827-1A8C53067623}|NetPdfService.csproj|C:\\proyecto pw2022\\Blog\\Net8\\NetPdfService\\pdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE4C9EA-8066-4EF9-9827-1A8C53067623}|NetPdfService.csproj|solutionrelative:pdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\proyecto pw2022\\Blog\\Net8\\NetPdfService\\TestNetPdfService\\Program.cs",
+              "RelativeDocumentMoniker": "TestNetPdfService\\Program.cs",
+              "ToolTip": "C:\\proyecto pw2022\\Blog\\Net8\\NetPdfService\\TestNetPdfService\\Program.cs",
+              "RelativeToolTip": "TestNetPdfService\\Program.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAADUAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-02T10:08:47.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TestNetPdfService.csproj",
+              "DocumentMoniker": "C:\\proyecto pw2022\\Blog\\Net8\\NetPdfService\\TestNetPdfService\\TestNetPdfService.csproj",
+              "RelativeDocumentMoniker": "TestNetPdfService\\TestNetPdfService.csproj",
+              "ToolTip": "C:\\proyecto pw2022\\Blog\\Net8\\NetPdfService\\TestNetPdfService\\TestNetPdfService.csproj",
+              "RelativeToolTip": "TestNetPdfService\\TestNetPdfService.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-30T15:03:00.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NetPdfService.csproj",
+              "DocumentMoniker": "C:\\proyecto pw2022\\Blog\\Net8\\NetPdfService\\NetPdfService.csproj",
+              "RelativeDocumentMoniker": "NetPdfService.csproj",
+              "ToolTip": "C:\\proyecto pw2022\\Blog\\Net8\\NetPdfService\\NetPdfService.csproj",
+              "RelativeToolTip": "NetPdfService.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-30T15:02:57.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PdfService.cs",
+              "DocumentMoniker": "C:\\proyecto pw2022\\Blog\\Net8\\NetPdfService\\PdfService.cs",
+              "RelativeDocumentMoniker": "PdfService.cs",
+              "ToolTip": "C:\\proyecto pw2022\\Blog\\Net8\\NetPdfService\\PdfService.cs",
+              "RelativeToolTip": "PdfService.cs",
+              "ViewState": "AQIAALsAAAAAAAAAAAAQwN4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T14:33:53.072Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 797,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

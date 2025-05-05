@@ -1,7 +1,7 @@
 ﻿using NetPdfService;
-using System;
 using System.Reflection;
-using System.Runtime.Intrinsics.X86;
+
+
 
 namespace AppPdfService
 {

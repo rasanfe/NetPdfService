@@ -1,20 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+	<ItemGroup>
+		<Compile Remove="TestNetPdfService\**" />
+		<EmbeddedResource Remove="TestNetPdfService\**" />
+		<None Remove="TestNetPdfService\**" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="TestNetPdfService\obj\" />
+	</ItemGroup>
   <ItemGroup>
-    <Compile Remove="TestNetPdfService\**" />
-    <EmbeddedResource Remove="TestNetPdfService\**" />
-    <None Remove="TestNetPdfService\**" />
+    <PackageReference Include="itext7" Version="8.0.5" />
+    <PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.5" />
+    <PackageReference Include="itext7.commons" Version="8.0.5" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TestNetPdfService\obj\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="itext7" Version="8.0.3" />
-    <PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.3" />
-    <PackageReference Include="itext7.commons" Version="8.0.3" />
-  </ItemGroup>
+
 </Project>
